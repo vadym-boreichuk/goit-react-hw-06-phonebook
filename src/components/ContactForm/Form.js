@@ -1,11 +1,11 @@
 import { Button, Form, Input, Label } from './Form.styled';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/contactSlice';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(state => state.contacts);
 
   const addCont = event => {
     event.preventDefault();
@@ -18,8 +18,8 @@ export const ContactForm = () => {
     ) {
       return alert(`${name} is already in contacts!`);
     }
-
-    dispatch(addContact(name, number));
+    const action = addContact({ name, number });
+    dispatch(action);
 
     event.currentTarget.reset();
   };

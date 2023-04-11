@@ -24,21 +24,3 @@ export const contactsReducer = createReducer(contactsInitialState, {
     );
   },
 });
-
-// export const contactsReducer = (state = contactsInitialState, action) => {
-//   switch (action.type) {
-//     case addContact.type:
-//       return [...state, action.payload];
-//     case deleteContact.type:
-//       return state.filter(contact => contact.id !== action.payload);
-//     case setStatusFilter.type:
-//       return state.map(contact => {
-//         if (contact.name === action.payload) {
-//           return contact;
-//         }
-//         // return { ...contact, completed: !contact.completed };
-//       });
-//     default:
-//       return state;
-//   }
-// };
